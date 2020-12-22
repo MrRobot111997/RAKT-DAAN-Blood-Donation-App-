@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="re" type="id" />
+    <item name="registerC" type="id" />
+    <item name="editFname" type="id" />
+    <item name="editLname" type="id" />
+    <item name="editTextPhone" type="id" />
+    <item name="radioGroup" type="id" />
+    <item name="radioButton" type="id" />
+    <item name="radioButton2" type="id" />
+    <item name="radioButton3" type="id" />
+    <item name="textView" type="id" />
+    <item name="textView2" type="id" />
+    <item name="textView3" type="id" />
+    <item name="getLoc" type="id" />
+    <item name="groupSpinner" type="id" />
+    <item name="textView4" type="id" />
+    <item name="locationTextView" type="id" />
+    <item name="textView6" type="id" />
+    <item name="editTextage" type="id" />
+    <item name="textView7" type="id" />
+    <item name="regSubmit" type="id" />
+    <item name="locProgressBar" type="id" />
+</resources>

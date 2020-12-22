@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/re"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/registerC"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/editLname"
+        app:layout_constraintStart_toStartOf="@id/editLname">
+
+        <EditText
+            android:id="@id/editFname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            app:layout_constraintBaseline_toBaselineOf="@id/editLname"
+            app:layout_constraintStart_toStartOf="@id/textView" />
+
+        <EditText
+            android:id="@id/editLname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="94.0dip"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editFname"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@id/editTextPhone"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2.0dip"
+            android:ems="10"
+            android:hint="Phone No."
+            android:inputType="phone"
+            android:maxLength="10"
+            android:numeric="integer"
+            android:phoneNumber="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+        <RadioGroup
+            android:id="@id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28.0dip"
+            android:layout_marginTop="4.0dip"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/textView3"
+            app:layout_constraintTop_toBottomOf="@id/textView3">
+
+            <RadioButton
+                android:id="@id/radioButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:paddingRight="25.0dip"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@id/radioButton2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="25.0dip"
+                android:text="Female" />
+
+            <RadioButton
+                android:id="@id/radioButton3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8.0dip"
+            android:text="Enter Name:"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/editFname"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11.0dip"
+            android:paddingLeft="8.0dip"
+            android:text="Enter Phone No.:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/editTextPhone"
+            app:layout_constraintTop_toBottomOf="@id/editFname" />
+
+        <TextView
+            android:id="@id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1.0dip"
+            android:layout_marginTop="19.0dip"
+            android:paddingLeft="8.0dip"
+            android:text="Enter Gender:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextPhone" />
+
+        <Button
+            android:id="@id/getLoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17.0dip"
+            android:onClick="getLocation"
+            android:text="Get Location"
+            app:layout_constraintBottom_toTopOf="@id/locationTextView"
+            app:layout_constraintEnd_toEndOf="@id/locProgressBar"
+            app:layout_constraintStart_toStartOf="@id/locProgressBar"
+            app:layout_constraintTop_toBottomOf="@id/groupSpinner" />
+
+        <Spinner
+            android:id="@id/groupSpinner"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21.0dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+        <TextView
+            android:id="@id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1.0dip"
+            android:layout_marginTop="19.0dip"
+            android:paddingLeft="8.0dip"
+            android:text="Enter Blood Group:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextage" />
+
+        <TextView
+            android:id="@id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="Get Location"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@id/regSubmit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24.0dip"
+            android:paddingLeft="8.0dip"
+            android:text="Enter Age:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/editTextage"
+            app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+
+        <EditText
+            android:id="@id/editTextage"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Age"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView6" />
+
+        <TextView
+            android:id="@id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28.0dip"
+            android:text="Enter Correct Details to Register"
+            android:textSize="18.0sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@id/regSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16.0dip"
+            android:onClick="commitData"
+            android:text="Submit"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@id/locProgressBar"
+            style="?android:progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/getLoc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/getLoc" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="10dp"
+            android:paddingLeft="8dp"
+            android:text="Covid Recovered ?"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/covidrRadioGroup"
+            app:layout_constraintHorizontal_bias="0.372"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/locationTextView" />
+
+        <RadioGroup
+            android:id="@+id/covidrRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textView10"
+            app:layout_constraintTop_toBottomOf="@id/locationTextView">
+
+            <RadioButton
+                android:id="@+id/yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="25dp"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="No" />
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rRelativeLayout">
+
+    <TextView
+        android:id="@+id/rName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentStart="true"
+        android:text="Name:" />
+
+    <TextView
+        android:id="@+id/rNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_toRightOf="@id/rName"
+        android:textStyle="bold"
+        android:text="Shashwat Shukla"/>
+
+    <TextView
+        android:id="@+id/rEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/rName"
+        android:text="Email:" />
+
+    <TextView
+        android:id="@+id/rEmailView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/rName"
+        android:layout_toRightOf="@id/rEmail"
+        android:textStyle="bold"
+        android:text="shuklashashwat11@gmail.com" />
+
+    <TextView
+        android:id="@+id/rPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/rEmail"
+        android:text="Phone No.:" />
+
+    <TextView
+        android:id="@+id/rPhoneView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@id/rEmail"
+        android:layout_toRightOf="@id/rPhone"
+        android:textStyle="bold"
+        android:text="1234567890" />
+
+    <TextView
+        android:id="@+id/rAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_toLeftOf="@id/rAgeView"
+        android:layout_centerVertical="true"
+        android:text="Age:" />
+
+
+    <TextView
+        android:id="@+id/rAgeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:textStyle="bold"
+        android:text="25" />
+
+    <!--
+    <TextView
+        android:id="@+id/rGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_toLeftOf="@id/rGenderView"
+        android:text="Gender" />
+
+    <TextView
+        android:id="@+id/rGenderView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom=""
+        android:text="Female" />
+
+-->
+
+</RelativeLayout>
+
+
+

@@ -24,9 +24,7 @@ public class InfoAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
         View customView = convertView ;
-
         if( customView == null ){
             customView = LayoutInflater.from(getContext()).inflate((R.layout.custom_listview) , parent ,false) ;
         }
@@ -47,7 +45,6 @@ public class InfoAdapter extends ArrayAdapter {
 
         String bloodGroup = currInfo.getBlood() ;
         imageView.setImageDrawable( customView.getResources().getDrawable( currInfo.getImgID() ) );
-
 
         return customView ;
     }

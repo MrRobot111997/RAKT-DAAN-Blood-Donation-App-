@@ -11,12 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
-
 //This Class Overrides Array Adapter and Allows me Implement my Own Vision of the List View , This One is for the List of Users
 //Who has Requested Blood From You .
-
 public class ReqAdapter extends ArrayAdapter {
-
     public ReqAdapter(Activity context , ArrayList<Info> infos , int color ){
         super(context , 0  , infos) ;
     }

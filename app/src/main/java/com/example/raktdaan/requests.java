@@ -37,7 +37,10 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -76,8 +79,8 @@ public class requests extends AppCompatActivity {
             if( locationResult == null ){
                 return ;
             }
-            Location location = locationResult.getLastLocation() ;
 
+            Location location = locationResult.getLastLocation() ;
             Geocoder geocoder = new Geocoder( getApplicationContext() , Locale.getDefault() ) ;
 
             try {
@@ -113,11 +116,26 @@ public class requests extends AppCompatActivity {
             Intent i = new Intent( this , MainActivity.class  ) ;
             startActivity( i );
         }
+        else if(item.getItemId() == R.id.editpass){
+            FirebaseAuth.getInstance().sendPasswordResetEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail())
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if( task.isSuccessful() ){
+                                Toast.makeText(requests.this, "Please Check Your Mail",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                            else{
+                                Toast.makeText(requests.this, "Unable to Send Password Reset Mail",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
         else if( item.getItemId() == R.id.request ){
             Intent i = new Intent( this , your_requests.class );
             startActivity(i) ;
         }else {
-
             new MyDialogFragment().show(getSupportFragmentManager(), "My Dialog");
         }
 
@@ -155,30 +173,14 @@ public class requests extends AppCompatActivity {
         int resID = 0 ;
 
         switch (bloodG) {
-            case "A+":
-                resID = R.drawable.ap;
-                break;
-            case "A-":
-                resID = R.drawable.an;
-                break;
-            case "AB+":
-                resID = R.drawable.abp;
-                break;
-            case "AB-":
-                resID = R.drawable.abn;
-                break;
-            case "O+":
-                resID = R.drawable.op;
-                break;
-            case "O-":
-                resID = R.drawable.on;
-                break;
-            case "B+":
-                resID = R.drawable.bp;
-                break;
-            default:
-                resID = R.drawable.bn;
-                break;
+            case "A+": resID = R.drawable.ap; break;
+            case "A-": resID = R.drawable.an; break;
+            case "AB+": resID = R.drawable.abp; break;
+            case "AB-": resID = R.drawable.abn; break;
+            case "O+": resID = R.drawable.op; break;
+            case "O-": resID = R.drawable.on; break;
+            case "B+": resID = R.drawable.bp; break;
+            default: resID = R.drawable.bn; break;
         }
 
         new Handler().postDelayed(new Runnable() {
@@ -195,8 +197,6 @@ public class requests extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 arrayList.clear();
-//                Toast.makeText( requests.this ,  snapshot.getChildrenCount() + " " , Toast.LENGTH_SHORT ).show();
-
                 for( DataSnapshot dataSnapshot : snapshot.getChildren() ){
                     arrayList.add( new Info(Objects.requireNonNull(dataSnapshot.getKey()),
                             Objects.requireNonNull(dataSnapshot.child("fname").getValue()).toString() ,
@@ -207,8 +207,6 @@ public class requests extends AppCompatActivity {
                             Objects.requireNonNull(dataSnapshot.child("covid").getValue()).toString() ,
                             finalResID) ) ;
                 }
-
-
                 infoAdapter.notifyDataSetChanged();
             }
 
@@ -325,7 +323,6 @@ public class requests extends AppCompatActivity {
                                 Toast.makeText(requests.this , "Request Cancelled" , Toast.LENGTH_SHORT).show();
                             }
                         }).show() ;
-
             }
         });
 
@@ -335,8 +332,6 @@ public class requests extends AppCompatActivity {
         }else{
             getLocation() ;
         }
-
-
     }
 
     @Override

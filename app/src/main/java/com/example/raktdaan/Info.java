@@ -1,15 +1,17 @@
 package com.example.raktdaan ;
-
 //Class to Create Objects of Users and Store there Info.
 public class Info {
 
     private  String uid = "" , fname = "" , lname = "" , gender = "" , location = "" , blood = "" , covid = "" , email = "" , pno = "" , age = "" ;
     private int imgID = 0 ;
+
+    //Requesting Users
     public Info( String id , String f , String ln , String g , String l , String b , String c , int iId ){
         uid = id ; fname = f ; lname = ln ; gender = g ; location = l ; blood = b ; covid = c ;
         imgID = iId ;
     }
 
+    //Current Users
     public Info( String u , String f , String l , String e , String p ,String a  ){
         uid = u ; fname = f ; lname = l ; email = e ; pno = p ; age = a;
     }
@@ -41,7 +43,6 @@ public class Info {
     public String getCovid() {
         return covid;
     }
-
 
     public String getBlood() {
         return blood;

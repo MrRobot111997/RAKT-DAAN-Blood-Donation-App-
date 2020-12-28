@@ -18,14 +18,19 @@ public class splash_screen extends AppCompatActivity {
     FirebaseAuth mAuth ;
     public void logIn(){
 
-        FirebaseDatabase.getInstance().getReference().child("user").child( mAuth.getCurrentUser().getUid() ).addListenerForSingleValueEvent(new ValueEventListener() {
+        //Checks if User is Registered or not .
+        FirebaseDatabase.getInstance().getReference().child("user").
+                child( mAuth.getCurrentUser().getUid() )
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // If the user is registered then takes him/her into the app .
                 if( snapshot.exists() ) {
                     userIntent = new Intent(splash_screen.this, requests.class);
                     startActivity(userIntent);
                 }
                 else{
+                    //If not registered takes the user to
                     regIntent = new Intent( splash_screen.this , registration.class ) ;
                     startActivity(regIntent) ;
                 }
@@ -39,14 +44,17 @@ public class splash_screen extends AppCompatActivity {
         });
     }
 
+    //On Start Checks if user is Logged in or Not.
     @Override
     protected void onStart() {
         super.onStart();
 
+        //If not Logged in Takes user to Login Activity
         if( FirebaseAuth.getInstance().getCurrentUser() == null ){
             Intent i = new Intent(this, MainActivity.class) ;
             startActivity(i);
         }else{
+            //If user is Logged int then Checks if User has registered or not .
             logIn();
         }
 

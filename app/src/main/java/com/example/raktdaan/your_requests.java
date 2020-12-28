@@ -44,7 +44,6 @@ public class your_requests extends AppCompatActivity {
                 arrayList.clear();
 
                 for( DataSnapshot dataSnapshot : snapshot.getChildren() ){
-
                     arrayList.add(new Info( "UID" ,
                             Objects.requireNonNull(dataSnapshot.child("fname").getValue()).toString(),
                             Objects.requireNonNull(dataSnapshot.child("lname").getValue()).toString(),
@@ -52,7 +51,6 @@ public class your_requests extends AppCompatActivity {
                             Objects.requireNonNull(dataSnapshot.child("phone").getValue()).toString(),
                             Objects.requireNonNull(dataSnapshot.child("age").getValue()).toString()));
                 }
-
                 reqAdapter.notifyDataSetChanged();
             }
 
@@ -63,7 +61,6 @@ public class your_requests extends AppCompatActivity {
         }) ;
 
         listView.setOnItemLongClickListener((adapterView, view, i, l) -> {
-
             new AlertDialog.Builder(your_requests.this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle( "Do You want to remove this Request?" )

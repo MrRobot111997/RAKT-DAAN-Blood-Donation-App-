@@ -16,6 +16,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,6 +37,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,6 +62,27 @@ public class registration extends AppCompatActivity {
     LocationManager locManager ;
     LocationRequest locationRequest ;
     boolean back = true ; //Track Back Button Press .
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater =new MenuInflater(this ) ;
+        menuInflater.inflate( R.menu.reg_menu , menu );
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if( item.getItemId() == R.id.r_log_out ){
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent( this , MainActivity.class  ) ;
+            startActivity( i );
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     LocationCallback locationCallback = new LocationCallback(){
         @Override

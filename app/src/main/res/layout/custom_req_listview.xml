@@ -78,26 +78,6 @@
         android:textStyle="bold"
         android:text="25" />
 
-    <!--
-    <TextView
-        android:id="@+id/rGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_toLeftOf="@id/rGenderView"
-        android:text="Gender" />
-
-    <TextView
-        android:id="@+id/rGenderView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom=""
-        android:text="Female" />
-
--->
-
 </RelativeLayout>
 
 

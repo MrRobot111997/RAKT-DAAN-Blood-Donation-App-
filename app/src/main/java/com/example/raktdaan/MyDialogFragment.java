@@ -21,7 +21,6 @@ public class MyDialogFragment extends DialogFragment {
                 // want it dismissed when clicked
             }
         });
-
         // Create the AlertDialog object and return it
         return builder.create();
     }
